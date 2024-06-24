@@ -1,0 +1,29 @@
+name: seed
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: Use TL? (0=MAM, 1=TL)
+        required: true
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Seed TL
+        if: github.event.inputs.seed == '1'
+        run: |
+         chmod +x ./ratio-spoof
+         ./ratio-spoof -t tl.torrent -d 0% -ds 1053kbps -u 0% -us 3014kbps -c qbit-5.0.0 -p 63857
+
+
+      - name: Seed MAM
+        if: github.event.inputs.seed == '0'
+        run: |
+         chmod +x ./ratio-spoof
+         ./ratio-spoof -t MAM.torrent -d 0% -ds 853kbps -u 0% -us 1414kbps -c qbit-4.3.9 -p 63857
+        

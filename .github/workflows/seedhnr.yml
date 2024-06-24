@@ -1,0 +1,84 @@
+name: seedhnr
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: Just seed HnR
+        required: true
+      input:
+        description: ratiospoof input
+        required: false
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Seed 
+        if: github.event.inputs.seed == '0'
+        run: |
+         chmod +x ./ratio-spoof
+         ./ratio-spoof ${{ github.event.inputs.input }}
+
+      - name: Seed 
+        if: github.event.inputs.seed == '1'
+        run: |
+         chmod +x ./ratio-spoof
+         ./ratio-spoof -t ./mam/wheel.torrent -d 100% -ds 753kbps -u 67.56gb -us 0kbps -c qbit-4.3.9 -p 63857
+
+
+
+
+  seed2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+
+
+      - name: Seed 2
+        if: github.event.inputs.seed == '1'
+        run: |
+         chmod +x ./ratio-spoof
+         ./ratio-spoof -t ./mam/best.torrent -d 100% -ds 753kbps -u 0gb -us 0kbps -c qbit-4.3.9 -p 63857
+
+
+
+  seed3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+
+
+      - name: Seed 3
+        if: github.event.inputs.seed == '1'
+        run: |
+         chmod +x ./ratio-spoof
+         ./ratio-spoof -t ./mam/death.torrent -d 100% -ds 753kbps -u 0gb -us 0kbps -c qbit-4.3.9 -p 63857
+
+
+
+  seed4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+
+      - name: Seed 4
+        if: github.event.inputs.seed == '1'
+        run: |
+         chmod +x ./ratio-spoof
+         ./ratio-spoof -t ./mam/dune.torrent -d 100% -ds 753kbps -u 0gb -us 0kbps -c qbit-4.3.9 -p 63857
+
+
+
+
+
+        
