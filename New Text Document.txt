@@ -1,0 +1,1 @@
+ratio-spoof.exe -t seed.torrent -d 0% -ds 753kbps -u 0% -us 2414kbps -c qbit-5.0.0 -p 63857

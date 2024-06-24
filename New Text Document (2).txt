@@ -1,0 +1,1 @@
+Command Prompt - ratio-spoof.exe  -t MAM.torrent -d 0% -ds 853kbps -u 0% -us 1414kbps -c qbit-4.3.9 -p 63857
